@@ -1,7 +1,7 @@
 import { TvShow } from '../../core/entities/TvShow';
 
 
-export const transformTvShows = (data) => {
+export const tvShowsMapper = (data) => {
   return data.results.map(
     (tvShow) =>
       new TvShow(

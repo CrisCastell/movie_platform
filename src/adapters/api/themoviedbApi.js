@@ -1,8 +1,9 @@
-import axios from "axios";
+import axios from 'axios';
 
 export const themoviedbApi = axios.create({
-  baseURL: 'https://api.themoviedb.org/3/',
-  params: {
-    api_key: '53e6e3165493f598289039440dbbc832',
+  baseURL: process.env.REACT_APP_API_BASE_URL,
+  headers: {
+    'Content-Type': 'application/json',
+    'Authorization': `Bearer ${process.env.REACT_APP_API_KEY}`,
   },
 });

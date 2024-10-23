@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { fetchPeliculas } from '../../core/useCases/fetchPeliculas';
+import { fetchPeliculas } from '../../adapters/store/slices/pelicula/peliculasSlice';
 
 const PeliculasPage = () => {
 

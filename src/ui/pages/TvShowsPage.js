@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { fetchTvShows } from '../../core/useCases/fetchTvShows';
+import { fetchTvShows } from '../../adapters/store/slices/tvShow/tvShowsSlice';
 
 
 const TvShowsPage = () => {

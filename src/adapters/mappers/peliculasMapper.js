@@ -1,7 +1,7 @@
-import { Pelicula } from '../../core/entities/Pelicula';
+import { Pelicula } from "../../core/entities/Pelicula";
 
 
-export const transformPeliculas = (data) => {
+export const peliculasMapper = (data) => {
   return data.results.map(
     (pelicula) =>
       new Pelicula(
