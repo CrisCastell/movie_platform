@@ -61,7 +61,7 @@ const CustomCard = ({item, favorito}) => {
                     }))
                   }
                   className="btn btn-danger mt-2"
-                  style={{ color: '#fff' }}
+                  style={{ color: '#000' }}
                   > 
                   <FaTrashAlt /> Eliminar de Favoritos
                 </button>

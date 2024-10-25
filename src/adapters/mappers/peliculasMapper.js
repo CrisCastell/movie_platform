@@ -2,7 +2,6 @@ import { imageSetter } from "../../utils/imageHelper";
 
 
 export const peliculasMapper = (data) => {
-  console.log("Entrando a pelicuals")
   return data.results.map((pelicula) => ({
       id: pelicula.id,
       title: pelicula.title,
