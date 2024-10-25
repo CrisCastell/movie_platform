@@ -4,10 +4,10 @@ import { fetchPeliculasUseCase } from '../../../../core/useCases/pelicula/fetchP
 
 export const fetchPeliculas = createAsyncThunk(
   'peliculas/fetchPeliculas',
-  async (_, { rejectWithValue }) => {
+  async (params, { rejectWithValue }) => {
     try {
-      const peliculas = await fetchPeliculasUseCase();
-      return peliculas;
+      const data = await fetchPeliculasUseCase(params);
+      return data;
     } catch (error) {
       return rejectWithValue(error.message);
     }
@@ -22,15 +22,22 @@ const peliculasSlice = createSlice({
     items: [],
     status: 'idle',
     error: null,
+    currentPage: 1,
+    totalPages:10,
   },
-  reducers: {},
+  reducers: {
+    setPage: (state, action) => {
+      state.currentPage = action.payload;
+    }
+  },
   extraReducers: (builder) => {
     builder
       .addCase(fetchPeliculas.pending, (state) => {
         state.status = 'loading';
       })
       .addCase(fetchPeliculas.fulfilled, (state, action) => {
-        state.items = action.payload;
+        state.items = action.payload.lista;
+        state.totalPages = action.payload.totalPages < 10 ? action.payload.totalPages : 10;
         state.status = 'succeeded';
         state.error = null;
       })
@@ -40,5 +47,5 @@ const peliculasSlice = createSlice({
       });
   },
 });
-
+export const { setPage } = peliculasSlice.actions;
 export default peliculasSlice.reducer;

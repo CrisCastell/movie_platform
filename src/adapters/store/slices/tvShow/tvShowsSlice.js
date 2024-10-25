@@ -5,9 +5,9 @@ import { fetchTvShowsUseCase } from '../../../../core/useCases/tvShow/fetchTvSho
 
 export const fetchTvShows = createAsyncThunk(
     'tvShows/fetchTvShows',
-    async (_, { rejectWithValue }) => {
+    async (params, { rejectWithValue }) => {
         try {
-            const tvShows = await fetchTvShowsUseCase();
+            const tvShows = await fetchTvShowsUseCase(params);
             return tvShows;
         } catch (error) {
             return rejectWithValue(error.message);
@@ -23,16 +23,23 @@ const tvShowsSlice = createSlice({
   initialState: { 
     items: [], 
     status: 'idle',
-    error: null
+    error: null,
+    currentPage: 1,
+    totalPages: 10
   },
-  reducers: {},
+  reducers: {
+    setPage: (state, action) => {
+      state.currentPage = action.payload;
+    }
+  },
   extraReducers: (builder) => {
     builder
       .addCase(fetchTvShows.pending, (state) => {
         state.status = 'loading';
       })
       .addCase(fetchTvShows.fulfilled, (state, action) => {
-        state.items = action.payload;
+        state.items = action.payload.lista;
+        state.totalPages = action.payload.totalPages < 10 ? action.payload.totalPages : 10;
         state.status = 'succeeded';
         state.error = null;
       })
@@ -43,4 +50,5 @@ const tvShowsSlice = createSlice({
   },
 });
 
+export const { setPage } = tvShowsSlice.actions;
 export default tvShowsSlice.reducer;

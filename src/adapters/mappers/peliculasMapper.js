@@ -1,17 +1,17 @@
-import { Pelicula } from "../../core/entities/Pelicula";
+import { imageSetter } from "../../utils/imageHelper";
 
 
 export const peliculasMapper = (data) => {
-  return data.results.map(
-    (pelicula) =>
-      new Pelicula(
-        pelicula.id,
-        pelicula.title,
-        pelicula.backdrop_path,
-        pelicula.poster_path,
-        pelicula.overview,
-        pelicula.popularity,
-        pelicula.release_date
-      )
-  );
+  console.log("Entrando a pelicuals")
+  return data.results.map((pelicula) => ({
+      id: pelicula.id,
+      title: pelicula.title,
+      backdropPath: imageSetter(pelicula.backdrop_path),
+      posterPath: imageSetter(pelicula.poster_path),
+      overview: pelicula.overview,
+      popularity: pelicula.popularity,
+      releaseDate: pelicula.release_date,
+      voteAverage: pelicula.vote_average,
+      mediaType: "Pelicula"
+  }));
 };

@@ -1,70 +1,40 @@
-# Getting Started with Create React App
+# Movie Platform: Plataforma con catálogo de peliculas y tv shows
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Este es un proyecto de plataforma de información de películas y series de TV, diseñado para ofrecer una experiencia similar a plataformas como Netflix o Disney+. El proyecto consume la API de **The Movie Database (TMDb)** y está construido en **React** con un enfoque de **arquitectura hexagonal**, asegurando un código limpio, escalable y mantenible.
 
-## Available Scripts
+## Funcionalidades 🚀
 
-In the project directory, you can run:
+- **Visualización de contenido**: Sección inicial con categorías como "Más populares", "Tendencias", y "Mejor valoradas" tanto para peliculas como tv shows.
+- **Búsqueda avanzada**: Barra de búsqueda similar a la utilizada en plataformas de streaming.
+- **Favoritos**: Posibilidad de agregar y eliminar películas y series de TV a una lista de favoritos (para usuarios registrados).
+- **Autenticación**: Acceso como usuario registrado para personalizar la experiencia.
+- **Paginación**: Navegación en las listas de contenido para facilitar la exploración.
+- **Interfaz interactiva**: Uso de componentes interactivos como sliders y carruseles de cards.
 
-### `npm start`
+## Tecnologías utilizadas 🛠️
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- **Frontend**: React, Redux, React Router, React Icons
+- **Estilos**: Bootstrap, Styled-Components
+- **API**: Integración con The Movie Database (TMDb)
+- **Estado global**: Redux Toolkit
+- **Manejo de autenticación**: Autenticación con la API de TMDb, incluyendo gestión de tokens y sesiones.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Arquitectura 🧱
 
-### `npm test`
+El proyecto sigue una **arquitectura hexagonal** para asegurar modularidad y escalabilidad. La estructura de carpetas está organizada en:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- **Core**: Casos de uso que representan la lógica de negocio.
+- **Adapters**: Interfaces de conexión con la API y la capa de almacenamiento (Redux).
+- **UI**: Componentes de presentación, divididos en vistas, componentes comunes y específicos.
 
-### `npm run build`
+## Instalación y ejecución 🔧
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+1. Clonar el repositorio:
+2. Posicionarse en directorio raiz
+3. Agregar el archivo env.local enviado por correo
+4. Ejecutar los siguientes comandos
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+```bash
+npm install
+npm start
+```
